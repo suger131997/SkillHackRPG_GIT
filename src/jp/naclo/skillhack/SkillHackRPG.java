@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 
 import jp.naclo.skillhack.Sequence.RootSequence;
 
-public class SkillHackRPG {
+public class SkillHackRPG {//https://github.com/suger131997/SkillHackRPG_GIT.git
 
 	public static void main(String[] args) {
 		SkillHackRPG shr = new SkillHackRPG();
