@@ -21,7 +21,7 @@ public class Title extends RootSequence{
 		if(next != mChild){
 			mChild = next;
 		}
-		RootSequence r = (RootSequence)mParent;
+
 
 		return this;
 	}
