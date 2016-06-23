@@ -6,6 +6,7 @@ import jp.naclo.skillhack.Loading.SuperLoadFile;
 
 public class Title_Load extends Title_Demo {
 	SuperLoadFile loadDSP;
+
 	public Title_Load(BaseSequence parent) {
 		mParent = parent;
 		Title_Demo td =((Title_Demo)mParent);

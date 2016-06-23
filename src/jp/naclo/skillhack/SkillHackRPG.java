@@ -1,6 +1,5 @@
 package jp.naclo.skillhack;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -30,6 +29,7 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 	BufferedImage backgraundImage;				//全体の背景
 	GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();	//全画面のため
 	RootSequence display;
+	private int windowWidth, windowHeight;
 
 	//コンストラクタ
 	SkillHackRPG(){
@@ -38,6 +38,8 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 		this.device.setFullScreenWindow(this.mainwindow);
 		this.mainwindow.
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		windowWidth = mainwindow.getWidth();
+		windowHeight = mainwindow.getHeight();
 		/*this.mainwindow.setSize(800, 720);
 		this.mainwindow.setLocationRelativeTo(null);
 		this.mainwindow.setVisible(true);
@@ -49,10 +51,11 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 		//キーアダプター
 		this.mainwindow.addKeyListener(new MyKeyAdapter());
 		//背景画面の画像ロード
-		URL Imgurl = getClass().getClassLoader().getResource("data/common/img/backgraund");
+		URL Imgurl = getClass().getClassLoader().getResource("data/common/img/CommonBackgraund.png");
 		try {
 			backgraundImage = ImageIO.read(Imgurl);
 		} catch (IOException e) {
+			System.out.print("-------------------");
 			e.printStackTrace();
 		}
 		//ゲーム開始処理
@@ -87,15 +90,31 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 
 
 		Graphics2D g = (Graphics2D)this.strategy.getDrawGraphics();
-		g.setBackground(Color.black);
-
+		/*g.setBackground(Color.black);
 		g.clearRect(0, 0,
-				this.mainwindow.getWidth(), this.mainwindow.getHeight());
+				this.mainwindow.getWidth(), this.mainwindow.getHeight());*/
+		clearBackground(g);
+
 		display.sinfo.g = g;
 
 		this.display.show();
 		g.dispose();
 		this.strategy.show();
+	}
+	//背景初期化用
+	private void clearBackground(Graphics2D g){
+		int i = 0, j = 0;
+		int width, height;
+		width = backgraundImage.getWidth();
+		height = backgraundImage.getHeight();
+		while(windowWidth >= i * width){
+			while(windowHeight >= j * height){
+				g.drawImage(backgraundImage, i * width, j * height, null);
+				j++;
+			}
+			j = 0;
+			i++;
+		}
 	}
 
 	class RenderTask extends TimerTask{
