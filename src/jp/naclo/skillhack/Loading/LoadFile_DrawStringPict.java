@@ -33,7 +33,7 @@ public class LoadFile_DrawStringPict  extends SuperLoadFile{
 
 	@Override
 	public void FileConverter() throws IOException, SAXException, ParserConfigurationException, URISyntaxException {
-		URL XMLurl = getClass().getClassLoader().getResource("Data/Font/"+fileName);
+		URL XMLurl = getClass().getClassLoader().getResource("data/font/"+fileName);
 		Document document = DocumentBuilderFactory.newInstance().
 				newDocumentBuilder().parse(new File(XMLurl.toURI()));
 
@@ -53,7 +53,7 @@ public class LoadFile_DrawStringPict  extends SuperLoadFile{
                 String nodeName = dataList.item(j).getNodeName();
                 if (nodeName.equals("fontimg"))		//fontimg
                 {
-                    URL Imgurl = getClass().getClassLoader().getResource("Data/Font/"+dataList.item(j).getTextContent());
+                    URL Imgurl = getClass().getClassLoader().getResource("data/font/"+dataList.item(j).getTextContent());
                     fontImage = ImageIO.read(Imgurl);
                 }else if(nodeName.equals("fontsizedatas")){
                 	NodeList sizeNodes = dataList.item(j).getChildNodes();

@@ -7,9 +7,13 @@ import java.awt.GraphicsEnvironment;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import jp.naclo.skillhack.Sequence.RootSequence;
@@ -23,7 +27,8 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 
 	JFrame mainwindow;
 	BufferStrategy strategy;
-	GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+	BufferedImage backgraundImage;				//全体の背景
+	GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();	//全画面のため
 	RootSequence display;
 
 	//コンストラクタ
@@ -43,6 +48,13 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 		this.strategy = this.mainwindow.getBufferStrategy();
 		//キーアダプター
 		this.mainwindow.addKeyListener(new MyKeyAdapter());
+		//背景画面の画像ロード
+		URL Imgurl = getClass().getClassLoader().getResource("data/common/img/backgraund");
+		try {
+			backgraundImage = ImageIO.read(Imgurl);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		//ゲーム開始処理
 		display = new RootSequence(null);
 	}
