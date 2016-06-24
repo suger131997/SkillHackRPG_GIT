@@ -22,7 +22,7 @@ public class DrawStringPict {		//文字描画クラス
 		for(int i = 0; i <str.length();i++){
 			Point img_position = (Point) fontImages.get(str.charAt(i) + "," + fontSize);
 			if(img_position == null){
-				System.out.println("文字データ不足");
+				System.out.println("文字データ不足" + str.charAt(i));
 			}
 			g.drawImage(fontImage, x + size[fontSize] * i, y, x + size[fontSize]*( i + 1 ), y + size[fontSize],
 					img_position.x, img_position.y, img_position.x + size[fontSize], img_position.y + size[fontSize], null);

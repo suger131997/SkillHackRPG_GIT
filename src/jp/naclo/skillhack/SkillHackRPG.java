@@ -68,22 +68,27 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 	}
 
 
-	boolean waiting_for_key;					//キー入力許可
+	//boolean waiting_for_key;					//キー入力許可
+	boolean[] keystate = new boolean[KEY_STATE.NUMBER];
 	void render(){
 		//時間計測
 		long time = System.currentTimeMillis();
 		display.sinfo.currenttime = time;
 
-		//キー入力待ち
+		/*//キー入力待ち 不採用？
 		waiting_for_key = true;
 		while(time - display.sinfo.currenttime < 1){
 			time = System.currentTimeMillis();
 		}
-		waiting_for_key = false;
+		waiting_for_key = false;*/
 
+		//キーの入力反映
+		for(int i = 0; i < KEY_STATE.NUMBER ;i++){
+			display.sinfo.keystate[i] = this.keystate[i];
+		}
 		//ロード待ち
 		boolean loading = true;
-		while(time - display.sinfo.currenttime < 6 && loading){	//一定時間経過もしくはロードするものがないとき終
+		while(time - display.sinfo.currenttime < display.sinfo.loadSecond && loading){	//一定時間経過もしくはロードするものがないとき終
 			time = System.currentTimeMillis();
 			loading = display.sinfo.myLoader.loadFile();
 		}
@@ -94,6 +99,7 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 		g.clearRect(0, 0,
 				this.mainwindow.getWidth(), this.mainwindow.getHeight());*/
 		clearBackground(g);
+		g.translate((windowWidth - 960) / 2, (windowHeight - 720) / 2);
 
 		display.sinfo.g = g;
 
@@ -128,20 +134,20 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			if(waiting_for_key){
+			//if(waiting_for_key){
 				this.setValue(e.getKeyCode(), true);
-			}
+			//}
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
-			if(waiting_for_key){
+			//if(waiting_for_key){
 				this.setValue(e.getKeyCode(), false);
-			}
+			//}
 		}
 
 		private void setValue(int keycode, boolean b){
-			boolean[] keystate = display.sinfo.keystate;
+			//boolean[] keystate = display.sinfo.keystate;
 			switch(keycode){
 			case KeyEvent.VK_LEFT:
 				keystate[KEY_STATE.LEFT_A] = b;

@@ -1,8 +1,10 @@
 package jp.naclo.skillhack.Sequence;
 
+import java.awt.image.BufferedImage;
+
 
 public class Title extends RootSequence{
-	protected int TitleFrame;
+	protected BufferedImage titleImages[];
 	public Title(){}
 	public Title(BaseSequence parent){
 		mParent = parent;

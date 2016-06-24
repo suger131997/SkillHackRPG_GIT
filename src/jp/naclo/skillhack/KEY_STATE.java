@@ -1,6 +1,7 @@
 package jp.naclo.skillhack;
 
 public class KEY_STATE {
+	public static final int NUMBER = 8;
 	public static final int LEFT_A = 0;
 	public static final int RIGHT_D = 1;
 	public static final int UP_W = 2;

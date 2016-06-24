@@ -1,10 +1,9 @@
 package jp.naclo.skillhack.Sequence;
 
-import java.awt.image.BufferedImage;
 
 
 public class Title_Demo extends Title{
-	protected BufferedImage titleImages[];
+
 
 	public Title_Demo() {}
 	public Title_Demo(BaseSequence parent) {

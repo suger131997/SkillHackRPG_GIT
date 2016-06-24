@@ -21,6 +21,9 @@ public class Loader {		//ロードを管理するクラス
 			case "fontfile":
 				myFile = new LoadFile_DrawStringPict(fileName);
 				break;
+			case "imagefile":
+				myFile = new LoadFile_Image(fileName);
+				break;
 		}
 
 		if(insert){		//割り込みロード
@@ -51,5 +54,15 @@ public class Loader {		//ロードを管理するクラス
 
 
 		return true;
+	}
+
+	public static Object loadTry(SuperLoadFile targetFile){
+		Object myData = null;
+		if(targetFile != null){
+			if(targetFile.isReady()){
+				myData = targetFile.getData();
+			}
+		}
+		return myData;
 	}
 }
