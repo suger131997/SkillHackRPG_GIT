@@ -1,20 +1,16 @@
 package jp.naclo.skillhack.Sequence;
 
-import java.awt.image.BufferedImage;
+public class Title_Menu extends BaseSequence{
 
-
-public class Title extends BaseSequence{
-	protected BufferedImage titleImages[];
-
-	public Title(BaseSequence parent){
+	public Title_Menu(BaseSequence parent) {
 		mParent = parent;
-		mChild = new Title_Demo(this);
+		mChild = new Title_Select(this);
 	}
-
 	@Override
 	public BaseSequence show() {
 		BaseSequence next;
 		next = mChild.show();
+
 		//階層間移動
 		if((this.myLayerNumber()+1) != next.myLayerNumber()){
 			return next;
@@ -24,13 +20,11 @@ public class Title extends BaseSequence{
 			mChild = next;
 		}
 
-
 		return this;
 	}
-
 	@Override
 	protected int myLayerNumber() {
-		return 1;
+		// TODO 自動生成されたメソッド・スタブ
+		return 2;
 	}
-
 }

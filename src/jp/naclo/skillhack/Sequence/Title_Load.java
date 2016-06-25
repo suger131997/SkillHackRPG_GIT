@@ -12,7 +12,7 @@ import jp.naclo.skillhack.TITLE_IMAGE_NUMBER;
 import jp.naclo.skillhack.Loading.Loader;
 import jp.naclo.skillhack.Loading.SuperLoadFile;
 
-public class Title_Load extends Title_Demo {
+public class Title_Load extends BaseSequence {
 	SuperLoadFile loadDSP;
 	SuperLoadFile loadFrameImage;
 	SuperLoadFile loadArrowImage;

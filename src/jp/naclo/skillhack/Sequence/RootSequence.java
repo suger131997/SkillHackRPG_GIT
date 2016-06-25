@@ -7,7 +7,6 @@ public class RootSequence extends BaseSequence{
 	//文字を書くクラス
 	protected DrawStringPict DSP = null;
 	public ShareInfo sinfo;
-	public RootSequence(){}
 	public RootSequence(BaseSequence parent){
 		//mChild = null;
 		sinfo = new ShareInfo();
@@ -15,9 +14,6 @@ public class RootSequence extends BaseSequence{
 	}
 	@Override
 	public BaseSequence show() {
-		/*if(mChild == null){
-			mChild = new Title(this);
-		}*/
 		BaseSequence next;
 		next = mChild.show();
 		if(next != mChild){

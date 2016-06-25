@@ -2,10 +2,7 @@ package jp.naclo.skillhack.Sequence;
 
 
 
-public class Title_Demo extends Title{
-
-
-	public Title_Demo() {}
+public class Title_Demo extends BaseSequence{
 	public Title_Demo(BaseSequence parent) {
 		mParent = parent;
 		mChild = new Title_Load(this);
