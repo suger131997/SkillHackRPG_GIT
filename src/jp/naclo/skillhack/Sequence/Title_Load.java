@@ -116,7 +116,7 @@ public class Title_Load extends BaseSequence {
 		}
 
 		r.sinfo.g.drawImage(titleLoadImage, 0, 0, null);
-		if(r.sinfo.keystate[KEY_STATE.ESC] == true){
+		if(r.sinfo.keystate[1][KEY_STATE.ESC] == false && r.sinfo.keystate[0][KEY_STATE.ESC] == true){
 			System.exit(0);
 		}
 

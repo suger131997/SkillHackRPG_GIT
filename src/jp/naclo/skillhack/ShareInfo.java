@@ -13,7 +13,7 @@ public class ShareInfo {			//すべてのクラスが共有する情報
 	//ロード時間
 	public short loadSecond = 0;
 	//キーステート
-	public boolean[] keystate;
+	public boolean[][] keystate;	//0:現フレーム 1:前フレーム
 	//ローダー
 	public Loader myLoader = new Loader();
 	//枠
@@ -22,9 +22,14 @@ public class ShareInfo {			//すべてのクラスが共有する情報
 	public BufferedImage arrow;
 	//コンストラクタ
 	public ShareInfo(){
-		this.keystate = new boolean[KEY_STATE.NUMBER];
-		for(int i=0; i<KEY_STATE.NUMBER; i++){
-			this.keystate[i] = false;
+		this.keystate = new boolean[2][];
+		for(int i=0; i < 2; i++){
+			this.keystate[i] = new boolean[KEY_STATE.NUMBER];
+		}
+		for(int j=0; j < 2; j++){
+			for(int i=0; i < KEY_STATE.NUMBER; i++){
+				this.keystate[j][i] = false;
+			}
 		}
 	}
 }

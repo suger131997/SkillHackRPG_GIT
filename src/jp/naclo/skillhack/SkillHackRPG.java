@@ -83,8 +83,9 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 		waiting_for_key = false;*/
 
 		//キーの入力反映
-		for(int i = 0; i < KEY_STATE.NUMBER ;i++){
-			display.sinfo.keystate[i] = this.keystate[i];
+		for(int i = 0; i < KEY_STATE.NUMBER ;i++){	//0:現フレーム 1:前フレーム
+			display.sinfo.keystate[1][i] = display.sinfo.keystate[0][i];
+			display.sinfo.keystate[0][i] = this.keystate[i];
 		}
 		//ロード待ち
 		boolean loading = true;
@@ -104,6 +105,9 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 		display.sinfo.g = g;
 
 		this.display.show();
+		/*for(int i = 0; i < KEY_STATE.NUMBER ;i++){	//0:現フレーム 1:前フレーム
+			this.keystate[i] = false;
+		}*/
 		g.dispose();
 		this.strategy.show();
 	}
@@ -134,16 +138,12 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			//if(waiting_for_key){
-				this.setValue(e.getKeyCode(), true);
-			//}
+			this.setValue(e.getKeyCode(), true);
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
-			//if(waiting_for_key){
 				this.setValue(e.getKeyCode(), false);
-			//}
 		}
 
 		private void setValue(int keycode, boolean b){
