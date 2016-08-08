@@ -67,26 +67,22 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 		t.schedule(new RenderTask(), 0, 16);
 	}
 
-
-	//boolean waiting_for_key;					//キー入力許可
 	boolean[] keystate = new boolean[KEY_STATE.NUMBER];
 	void render(){
 		//時間計測
 		long time = System.currentTimeMillis();
 		display.sinfo.currenttime = time;
 
-		/*//キー入力待ち 不採用？
-		waiting_for_key = true;
-		while(time - display.sinfo.currenttime < 1){
-			time = System.currentTimeMillis();
-		}
-		waiting_for_key = false;*/
-
 		//キーの入力反映
 		for(int i = 0; i < KEY_STATE.NUMBER ;i++){	//0:現フレーム 1:前フレーム
 			display.sinfo.keystate[1][i] = display.sinfo.keystate[0][i];
 			display.sinfo.keystate[0][i] = this.keystate[i];
 		}
+
+		if(display.sinfo.keystate[0][KEY_STATE.ESC] == true && display.sinfo.keystate[1][KEY_STATE.ESC] == false){
+			System.exit(0);
+		}
+
 		//ロード待ち
 		boolean loading = true;
 		while(time - display.sinfo.currenttime < display.sinfo.loadSecond && loading){	//一定時間経過もしくはロードするものがないとき終
@@ -105,9 +101,6 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 		display.sinfo.g = g;
 
 		this.display.show();
-		/*for(int i = 0; i < KEY_STATE.NUMBER ;i++){	//0:現フレーム 1:前フレーム
-			this.keystate[i] = false;
-		}*/
 		g.dispose();
 		this.strategy.show();
 	}

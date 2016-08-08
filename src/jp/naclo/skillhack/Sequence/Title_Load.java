@@ -6,6 +6,7 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
+import jp.naclo.skillhack.DrawFrame;
 import jp.naclo.skillhack.DrawStringPict;
 import jp.naclo.skillhack.KEY_STATE;
 import jp.naclo.skillhack.TITLE_IMAGE_NUMBER;
@@ -14,7 +15,7 @@ import jp.naclo.skillhack.Loading.SuperLoadFile;
 
 public class Title_Load extends BaseSequence {
 	SuperLoadFile loadDSP;
-	SuperLoadFile loadFrameImage;
+	SuperLoadFile loadFrame;
 	SuperLoadFile loadArrowImage;
 	SuperLoadFile loadTitleImage;
 	SuperLoadFile loadTitleMuneImage;
@@ -30,7 +31,7 @@ public class Title_Load extends BaseSequence {
 		//ロード予約
 		//全体で使う
 		loadDSP = r.sinfo.myLoader.createFile("fontfile", "FontsData.xml", false);
-		loadFrameImage = r.sinfo.myLoader.createFile("imagefile", "data/common/img/Frame.png", false);
+		loadFrame = r.sinfo.myLoader.createFile("frame", null, false);
 		loadArrowImage = r.sinfo.myLoader.createFile("imagefile", "data/common/img/Arrow.png", false);
 		//タイトルのみで使う
 		t.titleImages = new BufferedImage[TITLE_IMAGE_NUMBER.COUNT];
@@ -98,9 +99,9 @@ public class Title_Load extends BaseSequence {
 			r.DSP = (DrawStringPict) myLoadData;
 			loadDSP = null;
 		}
-		if((myLoadData = Loader.loadTry(loadFrameImage)) != null){
-			r.sinfo.frame = (BufferedImage)myLoadData;
-			loadFrameImage = null;
+		if((myLoadData = Loader.loadTry(loadFrame)) != null){
+			r.sinfo.DF = (DrawFrame)myLoadData;
+			loadFrame = null;
 		}
 		if((myLoadData = (BufferedImage) Loader.loadTry(loadArrowImage)) != null){
 			r.sinfo.arrow = (BufferedImage) myLoadData;
@@ -122,7 +123,7 @@ public class Title_Load extends BaseSequence {
 
 
 
-		if(loadDSP == null && loadFrameImage == null && loadArrowImage == null && loadTitleImage == null && loadTitleMuneImage == null){
+		if(loadDSP == null && loadFrame == null && loadArrowImage == null && loadTitleImage == null && loadTitleMuneImage == null){
 			return new Title_Wait(mParent);
 		}
 		return this;

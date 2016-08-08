@@ -21,6 +21,9 @@ public class Loader {		//ロードを管理するクラス
 			case "fontfile":
 				myFile = new LoadFile_DrawStringPict(fileName);
 				break;
+			case "frame":
+				myFile = new LoadFile_DrawFrame(null);
+				break;
 			case "imagefile":
 				myFile = new LoadFile_Image(fileName);
 				break;

@@ -37,15 +37,12 @@ public class Title_Select extends BaseSequence {
 
 		//描画処理
 		r.sinfo.g.drawImage(t.titleImages[TITLE_IMAGE_NUMBER.TITLE_MENU], 0, 0, null);
-
+		r.sinfo.DF.drowFrame(r.sinfo.g,70, 80, 180, 100);
 		r.sinfo.g.drawImage(r.sinfo.arrow, 80, 100 + 18 * (cursor_pos % 3), null);
+		
 		r.DSP.drowString(r.sinfo.g, "はじめから", 100, 100, FONT_SIZE.SMALL);
 		r.DSP.drowString(r.sinfo.g, "つづきから", 100, 118, FONT_SIZE.SMALL);
 		r.DSP.drowString(r.sinfo.g, "けーむをおわる", 100, 136, FONT_SIZE.SMALL);
-
-		if(r.sinfo.keystate[0][KEY_STATE.ESC] == true){
-			System.exit(0);
-		}
 
 		return this;
 

@@ -26,9 +26,6 @@ public class Title_Wait extends BaseSequence {
 		r.sinfo.g.drawImage(t.titleImages[TITLE_IMAGE_NUMBER.TITLE], 0, 0, null);
 		r.DSP.drowStringCenter(r.sinfo.g, "すぺーすではじめる", t.titleImages[TITLE_IMAGE_NUMBER.TITLE].getWidth() / 2, 500, FONT_SIZE.SMALL);
 
-		if(r.sinfo.keystate[0][KEY_STATE.ESC] == true){
-			System.exit(0);
-		}
 		if(r.sinfo.keystate[0][KEY_STATE.SPACE] == true && r.sinfo.keystate[1][KEY_STATE.SPACE] == false){
 			return new Title_Menu(t);
 		}

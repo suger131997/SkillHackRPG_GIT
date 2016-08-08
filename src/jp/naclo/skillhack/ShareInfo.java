@@ -17,7 +17,7 @@ public class ShareInfo {			//すべてのクラスが共有する情報
 	//ローダー
 	public Loader myLoader = new Loader();
 	//枠
-	public BufferedImage frame;
+	public DrawFrame DF;
 	//矢印
 	public BufferedImage arrow;
 	//コンストラクタ
