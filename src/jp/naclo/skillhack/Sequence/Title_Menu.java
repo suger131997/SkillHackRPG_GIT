@@ -1,10 +1,12 @@
 package jp.naclo.skillhack.Sequence;
 
-public class Title_Menu extends BaseSequence{
+import jp.naclo.skillhack.DrawTitleMenu;
 
+public class Title_Menu extends BaseSequence{
+	protected DrawTitleMenu DTM = new DrawTitleMenu();
 	public Title_Menu(BaseSequence parent) {
 		mParent = parent;
-		mChild = new Title_Select(this);
+		mChild = new Title_Select(this, 30000);
 	}
 	@Override
 	public BaseSequence show() {

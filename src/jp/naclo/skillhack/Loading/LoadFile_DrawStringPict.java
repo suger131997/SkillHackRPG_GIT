@@ -31,6 +31,19 @@ public class LoadFile_DrawStringPict  extends SuperLoadFile{
 		super(fName);
 	}
 
+	/*
+     * XML仕様
+     * <profile>:ファイルの種類(属性type = fontfile)
+     *      <fontimg>:画像データ
+     *      <fontsizedatas>
+     *      	<fontsize>:文字の大きさデータ (属性type = small, middle, big) 18/36/54
+     *      <fonts>
+     *      	<font>:フォントデータ
+     *      		<char>:文字データ
+     *          	<size>:大きさデータ 0/1/2
+     *          	<position>:画像の左上位置データ(属性x, y)
+     */
+
 	@Override
 	public void FileConverter() throws IOException, SAXException, ParserConfigurationException, URISyntaxException {
 		URL XMLurl = getClass().getClassLoader().getResource("data/font/"+fileName);
@@ -114,6 +127,13 @@ public class LoadFile_DrawStringPict  extends SuperLoadFile{
                 	//System.out.println("errer");
                 }
 
+        }
+        for(int i=0; i < fontImage.getHeight() ; i++){
+        	for(int j=0; j < fontImage.getWidth() ; j++){
+            	if(fontImage.getRGB(j, i) == 0xFFFFFFFF){
+            		fontImage.setRGB(j, i, 0);
+            	}
+            }
         }
         //データ本体作成
         myData = new DrawStringPict(size, fontImages, fontImage);

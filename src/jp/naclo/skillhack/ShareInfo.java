@@ -20,6 +20,8 @@ public class ShareInfo {			//すべてのクラスが共有する情報
 	public DrawFrame DF;
 	//矢印
 	public BufferedImage arrow;
+	//文字を書くクラス
+	public DrawStringPict DSP = null;
 	//コンストラクタ
 	public ShareInfo(){
 		this.keystate = new boolean[2][];

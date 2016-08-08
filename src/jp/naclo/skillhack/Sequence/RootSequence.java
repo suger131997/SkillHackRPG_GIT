@@ -1,11 +1,10 @@
 package jp.naclo.skillhack.Sequence;
 
-import jp.naclo.skillhack.DrawStringPict;
 import jp.naclo.skillhack.ShareInfo;
 
 public class RootSequence extends BaseSequence{
 	//文字を書くクラス
-	protected DrawStringPict DSP = null;
+	//protected DrawStringPict DSP = null;
 	public ShareInfo sinfo;
 	public RootSequence(BaseSequence parent){
 		//mChild = null;

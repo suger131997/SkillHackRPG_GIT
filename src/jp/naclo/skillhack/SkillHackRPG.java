@@ -166,6 +166,11 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 			case KeyEvent.VK_S:
 				keystate[KEY_STATE.DOWN_S] = b;
 				break;
+			case KeyEvent.VK_F:
+				keystate[KEY_STATE.F_0] = b;
+				break;
+			case KeyEvent.VK_0:
+				keystate[KEY_STATE.F_0] = b;
 			case KeyEvent.VK_E:
 				keystate[KEY_STATE.E_1] = b;
 				break;

@@ -96,7 +96,7 @@ public class Title_Load extends BaseSequence {
 		//限界
 		Object myLoadData;
 		if((myLoadData =  Loader.loadTry(loadDSP)) != null){
-			r.DSP = (DrawStringPict) myLoadData;
+			r.sinfo.DSP = (DrawStringPict) myLoadData;
 			loadDSP = null;
 		}
 		if((myLoadData = Loader.loadTry(loadFrame)) != null){

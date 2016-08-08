@@ -17,7 +17,7 @@ public class DrawStringPict {		//文字描画クラス
 		fontImage = fi;
 	}
 
-	public void drowString(Graphics2D g,String str, int x, int y, int fontSize){	//文字を書く
+	public void drawString(Graphics2D g,String str, int x, int y, int fontSize){	//文字を書く
 		int position = 0;
 		int half;
 
@@ -43,7 +43,7 @@ public class DrawStringPict {		//文字描画クラス
 		}
 	}
 
-	public void drowStringCenter(Graphics2D g,String str, int x, int y, int fontSize){	//中央ぞろえで文字を書く
+	public void drawStringCenter(Graphics2D g,String str, int x, int y, int fontSize){	//中央ぞろえで文字を書く
 		int strWidth = 0;
 		int position = 0;
 		int half;
