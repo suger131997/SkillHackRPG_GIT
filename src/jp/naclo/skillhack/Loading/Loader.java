@@ -41,7 +41,7 @@ public class Loader {		//ロードを管理するクラス
 		return myFile;
 	}
 
-	public boolean loadFile(){					//ファイルを頭からロードする
+	public boolean loadFile(Loader myLoader){					//ファイルを頭からロードする
 		if(LoadingFiles.isEmpty()){				//ロードするファイルがなければスルーしロード終了
 			return false;
 		}
@@ -52,7 +52,7 @@ public class Loader {		//ロードを管理するクラス
 
 
 			try {
-				nowLoadFile.FileConverter();
+				nowLoadFile.FileConverter(myLoader);
 			} catch (IOException | SAXException | ParserConfigurationException | URISyntaxException e) {
 				JOptionPane.showMessageDialog(null,
 						"ファイル読み込みエラー");

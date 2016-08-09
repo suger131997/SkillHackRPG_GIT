@@ -1,5 +1,6 @@
 package jp.naclo.skillhack;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -87,7 +88,7 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 		boolean loading = true;
 		while(time - display.sinfo.currenttime < display.sinfo.loadSecond && loading){	//一定時間経過もしくはロードするものがないとき終
 			time = System.currentTimeMillis();
-			loading = display.sinfo.myLoader.loadFile();
+			loading = display.sinfo.myLoader.loadFile(display.sinfo.myLoader);
 		}
 
 
@@ -97,7 +98,8 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 				this.mainwindow.getWidth(), this.mainwindow.getHeight());*/
 		clearBackground(g);
 		g.translate((windowWidth - 960) / 2, (windowHeight - 720) / 2);
-
+		g.setBackground(Color.black);
+		g.clearRect(0, 0, 960, 720);
 		display.sinfo.g = g;
 
 		this.display.show();
@@ -118,6 +120,7 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 			j = 0;
 			i++;
 		}
+		
 	}
 
 	class RenderTask extends TimerTask{

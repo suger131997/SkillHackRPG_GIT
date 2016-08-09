@@ -12,7 +12,7 @@ public class LoadFile_Image extends SuperLoadFile{
 		super(fName);
 	}
 
-	public void FileConverter() throws IOException {
+	public void FileConverter(Loader myLoader) throws IOException {
 		URL url=getClass().getClassLoader().getResource(fileName);
 		myData = ImageIO.read(url);
 	}

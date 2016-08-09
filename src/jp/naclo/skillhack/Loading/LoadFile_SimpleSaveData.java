@@ -33,7 +33,7 @@ public class LoadFile_SimpleSaveData extends SuperLoadFile{
      */
 
 	@Override
-	public void FileConverter() throws IOException, SAXException, ParserConfigurationException, URISyntaxException {
+	public void FileConverter(Loader myLoader) throws IOException, SAXException, ParserConfigurationException, URISyntaxException {
 		URL XMLurl = getClass().getClassLoader().getResource("data/title/"+fileName);
 		Document document = DocumentBuilderFactory.newInstance().
 				newDocumentBuilder().parse(new File(XMLurl.toURI()));

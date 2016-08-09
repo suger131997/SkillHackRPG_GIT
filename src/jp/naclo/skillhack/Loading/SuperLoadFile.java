@@ -29,5 +29,5 @@ public abstract class SuperLoadFile {
 	public SuperLoadFile(String fName){
 		this.fileName = fName;
 	}
-	abstract public void FileConverter() throws IOException, SAXException, ParserConfigurationException, URISyntaxException;		//ファイルをそれぞれのインスタンスに
+	abstract public void FileConverter(Loader myLoader) throws IOException, SAXException, ParserConfigurationException, URISyntaxException;		//ファイルをそれぞれのインスタンスに
 }

@@ -14,7 +14,7 @@ public class LoadFile_DrawFrame extends SuperLoadFile{
 		super(fName);
 	}
 
-	public void FileConverter() throws IOException {
+	public void FileConverter(Loader myLoader) throws IOException {
 		URL url=getClass().getClassLoader().getResource("data/common/img/Frame_Angle.png");
 		BufferedImage frame_Angle = ImageIO.read(url);
 		url=getClass().getClassLoader().getResource("data/common/img/Frame_Body.png");

@@ -25,6 +25,9 @@ public class SimpleSaveData {
 		sinfo.DSP.drawString(sinfo.g,  name + " " + level + " " + saveSpotName + " " + hour + ":" + minute, x, y, FONT_SIZE.SMALL);
 	}
 
+	public int getNumber(){
+		return number;
+	}
 	public int getSaveSpot(){
 		return saveSpot;
 	}
