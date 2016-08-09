@@ -1,4 +1,7 @@
-package jp.naclo.skillhack;
+package jp.naclo.skillhack.title;
+
+import jp.naclo.skillhack.FONT_SIZE;
+import jp.naclo.skillhack.ShareInfo;
 
 public class DrawTitleMenu {
 	public void drawMunu_Select(ShareInfo sinfo){

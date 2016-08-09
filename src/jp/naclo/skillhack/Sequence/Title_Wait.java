@@ -2,7 +2,7 @@ package jp.naclo.skillhack.Sequence;
 
 import jp.naclo.skillhack.FONT_SIZE;
 import jp.naclo.skillhack.KEY_STATE;
-import jp.naclo.skillhack.TITLE_IMAGE_NUMBER;
+import jp.naclo.skillhack.title.TITLE_IMAGE_NUMBER;
 
 public class Title_Wait extends BaseSequence {
 

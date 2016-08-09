@@ -1,7 +1,7 @@
 package jp.naclo.skillhack.Sequence;
 
 import jp.naclo.skillhack.KEY_STATE;
-import jp.naclo.skillhack.TITLE_IMAGE_NUMBER;
+import jp.naclo.skillhack.title.TITLE_IMAGE_NUMBER;
 
 public class Title_Select extends BaseSequence {
 	int cursor_pos = 30000;

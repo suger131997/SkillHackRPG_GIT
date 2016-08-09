@@ -1,4 +1,4 @@
-package jp.naclo.skillhack;
+package jp.naclo.skillhack.title;
 
 public class TITLE_IMAGE_NUMBER {
 	public static final int COUNT = 2;

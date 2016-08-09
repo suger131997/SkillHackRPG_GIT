@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import jp.naclo.skillhack.SimpleSaveData;
+import jp.naclo.skillhack.title.SimpleSaveData;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;

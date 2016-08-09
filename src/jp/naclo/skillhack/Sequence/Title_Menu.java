@@ -1,6 +1,6 @@
 package jp.naclo.skillhack.Sequence;
 
-import jp.naclo.skillhack.DrawTitleMenu;
+import jp.naclo.skillhack.title.DrawTitleMenu;
 
 public class Title_Menu extends BaseSequence{
 	protected DrawTitleMenu DTM = new DrawTitleMenu();

@@ -2,7 +2,7 @@ package jp.naclo.skillhack.Sequence;
 
 import java.awt.image.BufferedImage;
 
-import jp.naclo.skillhack.SimpleSaveData;
+import jp.naclo.skillhack.title.SimpleSaveData;
 
 
 public class Title extends BaseSequence{
