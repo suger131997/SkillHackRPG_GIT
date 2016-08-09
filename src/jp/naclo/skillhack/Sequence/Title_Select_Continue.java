@@ -31,7 +31,7 @@ public class Title_Select_Continue  extends BaseSequence {
 
 		//描画処理
 		r.sinfo.g.drawImage(t.titleImages[TITLE_IMAGE_NUMBER.TITLE_MENU], 0, 0, null);
-		tm.DTM.drawMunu_Select_Continue(r.sinfo);
+		tm.DTM.drawMunu_Select_Continue(r.sinfo, t.saveData);
 		tm.DTM.drawMunu_Select_Continue_arrow(r.sinfo,cursor_pos);
 
 		if(r.sinfo.keystate[0][KEY_STATE.R_2] == true && r.sinfo.keystate[1][KEY_STATE.R_2] == false){

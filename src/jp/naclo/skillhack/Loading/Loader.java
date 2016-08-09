@@ -27,6 +27,9 @@ public class Loader {		//ロードを管理するクラス
 			case "imagefile":
 				myFile = new LoadFile_Image(fileName);
 				break;
+			case "simplesavedatafile":
+				myFile = new LoadFile_SimpleSaveData(fileName);
+				break;
 		}
 
 		if(insert){		//割り込みロード

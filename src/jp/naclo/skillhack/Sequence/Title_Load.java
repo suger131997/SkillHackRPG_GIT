@@ -3,12 +3,14 @@ package jp.naclo.skillhack.Sequence;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
 import jp.naclo.skillhack.DrawFrame;
 import jp.naclo.skillhack.DrawStringPict;
 import jp.naclo.skillhack.KEY_STATE;
+import jp.naclo.skillhack.SimpleSaveData;
 import jp.naclo.skillhack.TITLE_IMAGE_NUMBER;
 import jp.naclo.skillhack.Loading.Loader;
 import jp.naclo.skillhack.Loading.SuperLoadFile;
@@ -19,6 +21,7 @@ public class Title_Load extends BaseSequence {
 	SuperLoadFile loadArrowImage;
 	SuperLoadFile loadTitleImage;
 	SuperLoadFile loadTitleMuneImage;
+	SuperLoadFile loadSimpleSaveData;
 
 	BufferedImage titleLoadImage;
 	public Title_Load(BaseSequence parent) {
@@ -37,12 +40,13 @@ public class Title_Load extends BaseSequence {
 		t.titleImages = new BufferedImage[TITLE_IMAGE_NUMBER.COUNT];
 		loadTitleImage = r.sinfo.myLoader.createFile("imagefile", "data/title/img/title.png", false);
 		loadTitleMuneImage = r.sinfo.myLoader.createFile("imagefile", "data/title/img/title_munu.png", false);
-
+		//セーブデータ簡易版
+		t.saveData = new SimpleSaveData[3];
+		loadSimpleSaveData = r.sinfo.myLoader.createFile("simplesavedatafile", "SimpleSaveData.xml", false);
 		URL Imgurl = getClass().getClassLoader().getResource("data/title/img/title_load.png");
 		try {
 			titleLoadImage = ImageIO.read(Imgurl);
 		} catch (IOException e) {
-			System.out.print("-------------------");
 			e.printStackTrace();
 		}
 	}
@@ -116,6 +120,12 @@ public class Title_Load extends BaseSequence {
 			loadTitleMuneImage = null;
 		}
 
+		if((myLoadData = (ArrayList<SimpleSaveData>) Loader.loadTry(loadSimpleSaveData)) != null){
+			for(int i = 0; i < 3; i++){
+				t.saveData[i] = ((ArrayList<SimpleSaveData>) myLoadData).get(i);
+			}
+			loadSimpleSaveData = null;
+		}
 		r.sinfo.g.drawImage(titleLoadImage, 0, 0, null);
 		if(r.sinfo.keystate[1][KEY_STATE.ESC] == false && r.sinfo.keystate[0][KEY_STATE.ESC] == true){
 			System.exit(0);
@@ -123,7 +133,7 @@ public class Title_Load extends BaseSequence {
 
 
 
-		if(loadDSP == null && loadFrame == null && loadArrowImage == null && loadTitleImage == null && loadTitleMuneImage == null){
+		if(loadDSP == null && loadFrame == null && loadArrowImage == null && loadTitleImage == null && loadTitleMuneImage == null && loadSimpleSaveData == null){
 			return new Title_Wait(mParent);
 		}
 		return this;

@@ -2,10 +2,12 @@ package jp.naclo.skillhack.Sequence;
 
 import java.awt.image.BufferedImage;
 
+import jp.naclo.skillhack.SimpleSaveData;
+
 
 public class Title extends BaseSequence{
 	protected BufferedImage titleImages[];
-
+	protected SimpleSaveData saveData[];
 	public Title(BaseSequence parent){
 		mParent = parent;
 		mChild = new Title_Demo(this);
