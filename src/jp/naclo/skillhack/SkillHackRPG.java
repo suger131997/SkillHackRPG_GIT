@@ -17,7 +17,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import jp.naclo.skillhack.Sequence.RootSequence;
-
+/*砂糖*/
 public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GIT.git
 
 	public static void main(String[] args) {
@@ -120,7 +120,7 @@ public class SkillHackRPG {					//https://github.com/suger131997/SkillHackRPG_GI
 			j = 0;
 			i++;
 		}
-		
+
 	}
 
 	class RenderTask extends TimerTask{
