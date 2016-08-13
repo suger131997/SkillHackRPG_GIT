@@ -69,5 +69,10 @@ public class MapPlayerChara extends MapObject{
 	public int getChar_y() {
 		return char_y;
 	}
+	@Override
+	public void mapReflection(int[][] map) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
 
 }

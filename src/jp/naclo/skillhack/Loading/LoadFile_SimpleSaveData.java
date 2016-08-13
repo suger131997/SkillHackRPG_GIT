@@ -47,6 +47,10 @@ public class LoadFile_SimpleSaveData extends SuperLoadFile{
 
         NodeList dataList = document.getElementsByTagName("simplesavedata");
         ArrayList<SimpleSaveData> saveList = new ArrayList<SimpleSaveData>();
+
+        for(int i = 0; i < 3; i++){
+        	saveList.add(null);
+        }
         for(int i = 0; i < dataList.getLength(); i++){
         	int dataNumber = Integer.valueOf(dataList.item(i).getAttributes().getNamedItem("number").getNodeValue());
         	if(dataNumber!=0){
@@ -74,11 +78,10 @@ public class LoadFile_SimpleSaveData extends SuperLoadFile{
         				minute = Integer.valueOf(saveDataList.item(j).getAttributes().getNamedItem("minute").getNodeValue());
         			}
             	}
-        		saveList.add(new SimpleSaveData(dataNumber, name, level, spotNumber, spotName, hour, minute));
-            }else{
-
-            }saveList.add(null);
+        		saveList.set(dataNumber, new SimpleSaveData(dataNumber, name, level, spotNumber, spotName, hour, minute));
+            }
         }
+
         myData = saveList;
 	}
 
