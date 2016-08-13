@@ -8,6 +8,7 @@ public class DrawFrame {
 	private BufferedImage frame_Angle;
 	private BufferedImage frame_Body;
 	private BufferedImage frame;
+
 	public DrawFrame(BufferedImage angle , BufferedImage body, BufferedImage f){
 		frame_Angle = angle;
 		frame_Body = body;
