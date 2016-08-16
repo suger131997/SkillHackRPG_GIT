@@ -11,7 +11,7 @@ import org.xml.sax.SAXException;
 
 
 public class Loader {		//ロードを管理するクラス
-	private LinkedList<SuperLoadFile> LoadingFiles = new LinkedList<SuperLoadFile>();
+	private LinkedList<SuperLoadFile> loadingFiles = new LinkedList<SuperLoadFile>();
 
 	public SuperLoadFile createFile(String profile, String fileName, boolean insert){
 		SuperLoadFile myFile = null;
@@ -33,19 +33,19 @@ public class Loader {		//ロードを管理するクラス
 		}
 
 		if(insert){		//割り込みロード
-			LoadingFiles.addFirst(myFile);
+			loadingFiles.addFirst(myFile);
 		}else{
-			LoadingFiles.add(myFile);
+			loadingFiles.add(myFile);
 		}
 
 		return myFile;
 	}
 
 	public boolean loadFile(Loader myLoader){					//ファイルを頭からロードする
-		if(LoadingFiles.isEmpty()){				//ロードするファイルがなければスルーしロード終了
+		if(loadingFiles.isEmpty()){				//ロードするファイルがなければスルーしロード終了
 			return false;
 		}
-		SuperLoadFile nowLoadFile = LoadingFiles.remove();
+		SuperLoadFile nowLoadFile = loadingFiles.remove();
 		if(nowLoadFile.cancel){					//キャンセルされていたらスルー
 			return true;
 		}

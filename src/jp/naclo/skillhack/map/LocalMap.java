@@ -10,27 +10,21 @@ import jp.naclo.skillhack.ShareInfo;
 public class LocalMap {
 	private int mapWidth, mapHeight;
 	private BufferedImage mapImage;
-	private int mapBoard[][];
-	private int nowMapBoard[][];
+	private int mapBoard[][];			//壁のみの情報
+	private int nowMapBoard[][];		//それ以外も含む
 	private MapPlayerChara myChara;
 	private ArrayList<MapObject> objects;
-	public int draw(ShareInfo sinfo){
-		//マップの画像のコピー
-		BufferedImage showMap = new BufferedImage(mapImage.getWidth(), mapImage.getHeight(), mapImage.getType());
-		showMap.setData(mapImage.getData());
-		Graphics2D g_Image = showMap.createGraphics();
-
-		//マップの更新
+	public void renewal(ShareInfo sinfo){ //マップの更新
+		//初期状態に
 		for(int i = 0; i < mapWidth; i++){
 			for(int j = 0; j < mapHeight; j++){
-				mapBoard[j][i] = nowMapBoard[j][i];
+				nowMapBoard[j][i] = mapBoard[j][i];
 			}
 		}
 
 		for(int i = 0; i < objects.size(); i++){
 			objects.get(i).mapReflection(nowMapBoard);
 		}
-
 
 		//プレイヤーの移動
 		if(sinfo.keystate[0][KEY_STATE.LEFT_A]){
@@ -46,6 +40,14 @@ public class LocalMap {
 			myChara.move(MAP_CONST_NUM.DOWN, nowMapBoard);
 		}
 		myChara.mapReflection(nowMapBoard);
+	}
+
+	public int draw(ShareInfo sinfo){
+		//マップの画像のコピー
+		BufferedImage showMap = new BufferedImage(mapImage.getWidth(), mapImage.getHeight(), mapImage.getType());
+		showMap.setData(mapImage.getData());
+		Graphics2D g_Image = showMap.createGraphics();
+
 		myChara.draw(g_Image);
 
 		for(int i = 0; i < objects.size(); i++){

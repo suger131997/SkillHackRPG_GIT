@@ -35,7 +35,7 @@ public class Title_Select_Start extends BaseSequence {
 		tm.DTM.drawMunu_Select_Start_arrow(r.sinfo,cursor_pos);
 		if(r.sinfo.keystate[0][KEY_STATE.F_0] == true && r.sinfo.keystate[1][KEY_STATE.F_0] == false){
 			if(t.saveData[cursor_pos % 3]==null){
-				return new Title_Select_Create(mParent, cursor_pos % 3);
+				return new Title_Select_Create(mParent, cursor_pos % 3, 0);
 			}else{
 				//データが存在したとき
 				//return new Title_Select_Delete(mParent, cursor_pos % 3);

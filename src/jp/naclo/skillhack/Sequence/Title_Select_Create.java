@@ -1,10 +1,13 @@
 package jp.naclo.skillhack.Sequence;
 
+import jp.naclo.skillhack.Save.SaveFile_SimpleSaveData;
+
 
 public class Title_Select_Create  extends BaseSequence {
-	int cursor_pos = 30000;
-
-	public Title_Select_Create(BaseSequence parent, int dataNum) {
+	int dataNum;
+	int target;
+	SaveFile_SimpleSaveData simple_Saver;
+	public Title_Select_Create(BaseSequence parent, int dataNum, int target) {
 		mParent = parent;
 		Title_Demo td =((Title_Demo)mParent);
 		Title t =((Title)td.mParent);
