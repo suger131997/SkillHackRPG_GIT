@@ -4,7 +4,7 @@ package jp.naclo.skillhack.Sequence;
 public class Title_Select_Create  extends BaseSequence {
 	int cursor_pos = 30000;
 
-	public Title_Select_Create(BaseSequence parent) {
+	public Title_Select_Create(BaseSequence parent, int dataNum) {
 		mParent = parent;
 		Title_Demo td =((Title_Demo)mParent);
 		Title t =((Title)td.mParent);
@@ -22,7 +22,7 @@ public class Title_Select_Create  extends BaseSequence {
 		//新規データ作成
 
 		//ロードシーケンスへ
-		
+
 		return this;
 	}
 	@Override

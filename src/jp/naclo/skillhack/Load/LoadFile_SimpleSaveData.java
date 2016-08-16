@@ -1,4 +1,4 @@
-package jp.naclo.skillhack.Loading;
+package jp.naclo.skillhack.Load;
 
 import java.io.File;
 import java.io.IOException;

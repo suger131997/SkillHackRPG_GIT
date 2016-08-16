@@ -10,8 +10,8 @@ import javax.imageio.ImageIO;
 import jp.naclo.skillhack.DrawFrame;
 import jp.naclo.skillhack.DrawStringPict;
 import jp.naclo.skillhack.KEY_STATE;
-import jp.naclo.skillhack.Loading.Loader;
-import jp.naclo.skillhack.Loading.SuperLoadFile;
+import jp.naclo.skillhack.Load.Loader;
+import jp.naclo.skillhack.Load.SuperLoadFile;
 import jp.naclo.skillhack.title.SimpleSaveData;
 import jp.naclo.skillhack.title.TITLE_IMAGE_NUMBER;
 

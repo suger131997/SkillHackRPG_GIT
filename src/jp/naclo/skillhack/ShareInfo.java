@@ -3,7 +3,7 @@ package jp.naclo.skillhack;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import jp.naclo.skillhack.Loading.Loader;
+import jp.naclo.skillhack.Load.Loader;
 
 public class ShareInfo {			//すべてのクラスが共有する情報
 	//グラフィックス
